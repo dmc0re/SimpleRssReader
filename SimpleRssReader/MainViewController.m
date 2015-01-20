@@ -1,6 +1,7 @@
 #import "MainViewController.h"
 #import "FeedItemController.h"
 #import "WebViewController.h"
+#import "TableViewCell.h"
 
 @interface MainViewController ()
 
@@ -52,7 +53,7 @@
     
     UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(5, 105, 300, 400)];
     [tableView setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [tableView setRowHeight:50];
+    [tableView setRowHeight:90];
     [tableView setDataSource:self];
     [tableView setDelegate:self];
     [self setTableView:tableView];
@@ -84,20 +85,18 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *cellReuseId = @"Cell";
+    static NSString *cellReuseId = @"TableViewCell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellReuseId];
+    TableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellReuseId];
     if (cell == nil)
-    {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellReuseId];
-        [[cell detailTextLabel] setNumberOfLines:2];
-        [[cell detailTextLabel] setFont:[UIFont systemFontOfSize:11]];
-    }
+        cell = [[TableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellReuseId];
     
     FeedItem *item = [_feedItemController feedItemAtIndex:indexPath.row];
-    cell.textLabel.text = [item title];
-    cell.detailTextLabel.text = [item body];
-    cell.imageView.image = [item image];
+    
+    cell.titleLabel.text = [item title];
+    cell.descriptionLabel.text = [item body];
+    cell.thumbnailView.image = [item image];
+    cell.dateLabel.text = [item date];
     
     return cell;
 }

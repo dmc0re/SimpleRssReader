@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9E8DFB0D1A5C3DE8004D1E8A /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8DFB0C1A5C3DE8004D1E8A /* WebViewController.m */; };
+		9E9F11571A6CE7C60035AC13 /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E9F11561A6CE7C60035AC13 /* TableViewCell.m */; };
 		9EDDDF0E1A594C3D00C03937 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EDDDF0D1A594C3D00C03937 /* MainViewController.m */; };
 		9EE84C791A3F617F00ABDF4E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE84C781A3F617F00ABDF4E /* main.m */; };
 		9EE84C7C1A3F617F00ABDF4E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE84C7B1A3F617F00ABDF4E /* AppDelegate.m */; };
@@ -19,6 +20,8 @@
 /* Begin PBXFileReference section */
 		9E8DFB0B1A5C3DE8004D1E8A /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		9E8DFB0C1A5C3DE8004D1E8A /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		9E9F11551A6CE7C60035AC13 /* TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCell.h; sourceTree = "<group>"; };
+		9E9F11561A6CE7C60035AC13 /* TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
 		9EDDDF0C1A594C3D00C03937 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		9EDDDF0D1A594C3D00C03937 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		9EE84C731A3F617F00ABDF4E /* SimpleRssReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleRssReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,6 +78,8 @@
 				9EE84CCC1A414D7900ABDF4E /* FeedItem.m */,
 				9EE84C831A3F617F00ABDF4E /* Images.xcassets */,
 				9EE84C761A3F617F00ABDF4E /* Supporting Files */,
+				9E9F11551A6CE7C60035AC13 /* TableViewCell.h */,
+				9E9F11561A6CE7C60035AC13 /* TableViewCell.m */,
 			);
 			path = SimpleRssReader;
 			sourceTree = "<group>";
@@ -156,6 +161,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E9F11571A6CE7C60035AC13 /* TableViewCell.m in Sources */,
 				9EE84C7C1A3F617F00ABDF4E /* AppDelegate.m in Sources */,
 				9EE84CB11A40AC8400ABDF4E /* FeedItemController.m in Sources */,
 				9EE84CCD1A414D7900ABDF4E /* FeedItem.m in Sources */,
