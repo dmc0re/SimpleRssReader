@@ -14,7 +14,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    NSString *page = [NSString stringWithFormat:@"%@<br><br>%@<br><br>%@", [_feedItem title], [_feedItem date], [_feedItem body]];
+    NSString *page = [NSString stringWithFormat:@"%@<br><br>%@<br><br>%@", [_feedItem title], [_feedItem date], [_feedItem origBody]];
     [_webView loadHTMLString:page baseURL:nil];
 }
 

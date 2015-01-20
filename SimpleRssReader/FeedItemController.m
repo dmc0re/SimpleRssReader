@@ -83,7 +83,23 @@
             [feedItem setImage:[UIImage imageWithData:imageData]];
         }
         
-        [feedItem setBody: str];
+        [feedItem setOrigBody:str];
+        
+        NSString *s = [str copy];
+        NSRange range;
+        while ((range = [s rangeOfString:@"<[^>]+>" options:NSRegularExpressionSearch]).location != NSNotFound)
+            s = [s stringByReplacingCharactersInRange:range withString:@""];
+    
+        s = [s stringByReplacingOccurrencesOfString:@"&amp;" withString: @"&"];
+        s = [s stringByReplacingOccurrencesOfString:@"&quot;" withString:@"\""];
+        s = [s stringByReplacingOccurrencesOfString:@"&#27;" withString:@"'"];
+        s = [s stringByReplacingOccurrencesOfString:@"&#39;" withString:@"'"];
+        s = [s stringByReplacingOccurrencesOfString:@"&#92;" withString:@"'"];
+        s = [s stringByReplacingOccurrencesOfString:@"&#96;" withString:@"'"];
+        s = [s stringByReplacingOccurrencesOfString:@"&gt;" withString:@">"];
+        s = [s stringByReplacingOccurrencesOfString:@"&lt;" withString:@"<"];
+        
+        [feedItem setBody: s];
     }
     
     tagValue = [NSMutableString new];
