@@ -95,7 +95,38 @@
     
     cell.titleLabel.text = [item title];
     cell.descriptionLabel.text = [item body];
-    cell.thumbnailView.image = [item image];
+    
+    if (!item.image)
+    {
+        //        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        //            //Эмуляция долгой загрузки
+        //            [NSThread sleepForTimeInterval:2];
+        //            NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:item.imageUrl]];
+        //            item.image = [UIImage imageWithData:imageData];
+        //            dispatch_async(dispatch_get_main_queue(), ^{
+        //                cell.thumbnailView.image = [item image];
+        //            });
+        //        });
+        
+        cell.thumbnailView.image = [UIImage imageNamed:@"Placeholder.png"];
+        
+        NSURLRequest* request = [NSURLRequest requestWithURL:[NSURL URLWithString:item.imageUrl]];
+        [NSURLConnection sendAsynchronousRequest:request
+                                           queue:[NSOperationQueue mainQueue]
+                               completionHandler:^(NSURLResponse * response,
+                                                   NSData * data,
+                                                   NSError * error) {
+                                   if (!error)
+                                   {
+                                       UIImage *img = [[UIImage alloc] initWithData:data];
+                                       item.image = img;
+                                       cell.thumbnailView.image = img;
+                                   }
+                               }];
+            }
+    else
+        cell.thumbnailView.image = [item image];
+    
     cell.dateLabel.text = [item date];
     
     return cell;

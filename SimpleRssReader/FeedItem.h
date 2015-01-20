@@ -8,7 +8,7 @@
 @property (nonatomic, strong) NSString *body;
 @property (nonatomic, strong) NSString *origBody;
 @property (nonatomic, strong) NSString *imageUrl;
+@property (nonatomic, strong) UIImage *image;
 @property (nonatomic, strong) NSString *date;
 
-- (UIImage *)image;
 @end

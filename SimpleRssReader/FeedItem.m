@@ -1,23 +1,18 @@
 #import "FeedItem.h"
-#import <UIKit/UIKit.h>
-
-@interface FeedItem()
-{
-    UIImage *img;
-}
-
-@end
 
 @implementation FeedItem
 
-- (UIImage *)image
+- (instancetype)init
 {
-    if (img == nil)
+    self = [super init];
+    if (self)
     {
-        NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:self.imageUrl]];
-        img = [UIImage imageWithData:imageData];
+        self.title = @"";
+        self.origBody = @"";
+        self.body = @"";
+        self.date = @"";
     }
-    return img;
+    return self;
 }
 
 @end
