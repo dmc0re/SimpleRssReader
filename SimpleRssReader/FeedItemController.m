@@ -1,4 +1,3 @@
-#import <UIKit/UIKit.h>
 #import "FeedItemController.h"
 
 @interface FeedItemController ()
@@ -78,9 +77,7 @@
         if (match)
         {
             NSString *URL = [@"http:" stringByAppendingString:[str substringWithRange:[match rangeAtIndex:1]]];
-            NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:URL]];
-            
-            [feedItem setImage:[UIImage imageWithData:imageData]];
+            [feedItem setImageUrl:URL];
         }
         
         [feedItem setOrigBody:str];
@@ -89,7 +86,7 @@
         NSRange range;
         while ((range = [s rangeOfString:@"<[^>]+>" options:NSRegularExpressionSearch]).location != NSNotFound)
             s = [s stringByReplacingCharactersInRange:range withString:@""];
-    
+        
         s = [s stringByReplacingOccurrencesOfString:@"&amp;" withString: @"&"];
         s = [s stringByReplacingOccurrencesOfString:@"&quot;" withString:@"\""];
         s = [s stringByReplacingOccurrencesOfString:@"&#27;" withString:@"'"];
